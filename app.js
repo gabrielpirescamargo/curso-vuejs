@@ -1,15 +1,35 @@
 new Vue({
     el: '#desafio',
     data: {
-        valor: ' '
+        valor: 0
+    },
+    computed:{
+        resultado(){
+            
+            return this.valor == 37 
+            ? 'Igual a 37' : 'Diferente de 37'
+
+        }
+    },
+    watch:{
+        valor(novo, antigo){
+            setTimeout(() => {
+                this.valor = 0
+            }, 5000) //reset
+        },
     },
     methods:{
-        clicar(){
-            alert("alerta")
+        soma1(){
+            this.valor++
+            
+            
         },
-        tecla(event){
-            this.valor = event.target.value
+        soma5(){
+            this.valor = this.valor + 5
+        
            
         }
     }
-})
+    
+    
+});
