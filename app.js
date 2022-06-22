@@ -1,35 +1,45 @@
 new Vue({
-    el: '#desafio',
-    data: {
-        valor: 0
-    },
-    computed:{
-        resultado(){
-            
-            return this.valor == 37 
-            ? 'Igual a 37' : 'Diferente de 37'
+	el: '#desafio',
+	data: {
+		aplicarEfeito : false,
+		classe1:'classe1',
+		classe2: 'classe2',
+		classe4:'classe4',
+		classe3: 'classe3',
+		classeCSS: 'destaque',
+		cor: 'red',
+		largura: 100,
+		altura: 100,
 
-        }
-    },
-    watch:{
-        valor(novo, antigo){
-            setTimeout(() => {
-                this.valor = 0
-            }, 5000) //reset
-        },
-    },
-    methods:{
-        soma1(){
-            this.valor++
-            
-            
-        },
-        soma5(){
-            this.valor = this.valor + 5
-        
-           
-        }
-    }
-    
-    
-});
+	},
+	methods: {
+		iniciarEfeito() {
+			setInterval(() => {
+				this.classe1 = this.classe1 == 'destaque' 
+				? 'encolher' : 'destaque' 
+				,1000})
+			
+			
+		},
+		iniciarProgresso() {
+
+		}
+	},
+	computed:{
+		efeito(){
+			return{
+				destaque: this.aplicarEfeito,
+				encolher: !this.aplicarEfeito
+			}
+		},
+		meuEstilo(){
+			return{
+				backgrundColor: this.cor,
+				width: this.largura + 'px'
+			}
+		}
+		
+	}
+	
+	
+})
